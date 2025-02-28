@@ -1,0 +1,31 @@
+
+# Loads default set of integrations. Do not remove.
+default_config:
+
+# Load frontend themes from the themes folder
+frontend:
+  themes: !include_dir_merge_named themes
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+
+homeassistant:
+
+  # Customization file
+  #customize: !include customize.yaml
+
+  ### All my config yaml files in dir conf: ###
+  packages: !include_dir_named conf
+
+tion:
+  username: !secret tion_email
+  password: !secret tion_password
+
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 172.30.33.0/24
+    - 172.30.33.0/24
+    - 192.168.1.100
